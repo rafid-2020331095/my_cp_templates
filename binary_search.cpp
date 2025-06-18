@@ -66,3 +66,17 @@ public:
         return -1;
     }
 };
+
+
+    vector<int> searchRange(vector<int>& nums, int target) {
+        int x = lower_bound(nums.begin(),nums.end(), target)-nums.begin();
+        int y = upper_bound(nums.begin(),nums.end(), target)-nums.begin();
+
+        // Debug print if needed
+        // cout << "lower_bound: " << x << ", upper_bound: " << y << endl;
+
+        if (x == nums.size() || nums[x] != target) {
+            return {-1, -1};
+        }
+        return {x, y - 1};
+    }
